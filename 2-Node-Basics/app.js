@@ -1,17 +1,8 @@
-const http = require("http")
+const http = require("http");
+const routes = require('./routes')
 
+console.log(routes.someText)
 
-const server = http.createServer((req, res) => {
-url = req.url
-if (url === '/') {
-    
-}
- res.setHeader('Content-Type', 'text/html')
- res.write('<html>')
- res.write('<head><title>Hello</title></head>')
- res.write('<body><h1>Hello!!</h1></body>')
- res.write('</html>')
- res.end()
-})
+const server = http.createServer(routes.handler);
 
-server.listen(3000)
+server.listen(3000);
